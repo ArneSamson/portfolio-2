@@ -32,6 +32,13 @@ body,
   line-height: 140%;
   font-weight: 400;
   background-color: var(--neutral-100);
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+:root::-webkit-scrollbar {
+  display: none;
 }
 
 /* .inter {
@@ -132,4 +139,20 @@ h1 {
   bottom: 120px;
   right: 0;
   transform: translateX(-100%);
+}
+
+.birthdate-container {
+  z-index: 3;
+  position: absolute;
+  top: 90px;
+  left: 60px;
+  transform: rotate(-90deg);
+}
+
+.birthdate-hr {
+  width: 100%;
+  height: 2px;
+  background-color: var(--neutral-900);
+  border: none;
+  transform: translateX(-100%) translateY(-430%);
 }

@@ -8,6 +8,7 @@ import { BodyText, BodyBoldText, HeadingText } from "./text/Text.jsx";
 import BackgroundEntities from "./components/BackgroundEntities.jsx";
 import BottomFade from "./components/BottomFade.jsx";
 import Coords from "./components/Coords.jsx";
+import BirthDate from "./components/BirthDate.jsx";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
@@ -15,6 +16,9 @@ function App() {
   return (
     <>
       <Page>
+        <BirthDate>
+          <BodyText>09-12-2003</BodyText>
+        </BirthDate>
         <BackgroundEntities />
         <TitleContainer>
           <HeadingText>embrace</HeadingText>
@@ -26,6 +30,7 @@ function App() {
           <BodyBoldText>N 51.023° E 4.484°</BodyBoldText>
         </Coords>
       </Page>
+
       <Page>
         <BackgroundEntities />
       </Page>
