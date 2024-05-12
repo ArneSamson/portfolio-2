@@ -117,3 +117,19 @@ h1 {
 .background-entity {
   color: var(--neutral-500);
 }
+
+.coords-hr {
+  width: 100%;
+  height: 2px;
+  background-color: var(--neutral-900);
+  border: none;
+  transform: translateX(100%) translateY(-430%);
+}
+
+.coords-container {
+  z-index: 3;
+  position: absolute;
+  bottom: 120px;
+  right: 0;
+  transform: translateX(-100%);
+}
