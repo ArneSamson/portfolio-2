@@ -1,35 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./style.css";
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom/client";
+
+import Page from "./components/Page.jsx";
+import { BodyText, HeadingText } from "./text/Text.jsx";
+
+const root = ReactDOM.createRoot(document.querySelector("#root"));
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Page>
+      <HeadingText>My App</HeadingText>
+      <BodyText>Hello, world!</BodyText>
+    </Page>
+  );
 }
 
-export default App
+root.render(<App />);
