@@ -17,7 +17,7 @@ function App() {
     <>
       <Page>
         <BirthDate>
-          <BodyText>09-12-2003</BodyText>
+          <BodyBoldText>09-12-2003</BodyBoldText>
         </BirthDate>
         <BackgroundEntities />
         <TitleContainer>
