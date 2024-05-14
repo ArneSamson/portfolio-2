@@ -1,6 +1,6 @@
 @font-face {
   font-family: myFirstFont;
-  src: url(/fonts/Inter/Inter-Black.ttf);
+  src: url(/fonts/Inter/InterDisplay-Black.woff2);
 }
 
 * {
@@ -55,7 +55,7 @@ p {
 }
 
 h1 {
-  /* font-family: myFirstFont, sans-serif; */
+  font-family: myFirstFont, sans-serif;
   font-size: 150px;
   font-weight: 800;
   text-transform: uppercase;
@@ -155,5 +155,5 @@ h1 {
   height: 2px;
   background-color: var(--neutral-900);
   border: none;
-  transform: translateX(-100%) translateY(-430%);
+  transform: translateX(-102%) translateY(-430%);
 }
