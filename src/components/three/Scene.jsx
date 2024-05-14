@@ -1,9 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 import * as THREE from "three";
-import { Canvas } from "@react-three/fiber";
-import { CameraControls } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import {
+  CameraControls,
+  Environment,
+  useFBO,
+  RoundedBox,
+  MeshTransmissionMaterial,
+} from "@react-three/drei";
 
 import CameraHandler from "./helper/CameraHandler";
+import Lights from "./lights/Lights";
+
 import DavidHead from "./models/DavidHead";
 
 export default function Scene() {
@@ -14,42 +22,110 @@ export default function Scene() {
     far: 200,
     position: [0, 0, 4],
   };
-  // Component for the mask
+
   function Mask({ position }) {
+    const davidRef = useRef();
+    const maskRef = useRef();
+    const buffer = useFBO();
+
+    useFrame((state) => {
+      davidRef.current.visible = true;
+      maskRef.current.visible = false;
+      state.gl.setRenderTarget(buffer);
+      state.gl.render(state.scene, state.camera);
+      state.gl.setRenderTarget(null);
+      davidRef.current.visible = false;
+      maskRef.current.visible = true;
+    });
+
     return (
-      <mesh position={position}>
-        <planeGeometry args={[10, 10]} />
-        <meshBasicMaterial color='black' transparent opacity={0.5} />
-      </mesh>
+      <>
+        <group ref={davidRef}>
+          <DavidHead
+            position={[0, -2, 0]}
+            rotation={[0, Math.PI / 3, 0]}
+            scale={3.5}
+          />
+        </group>
+
+        <mesh
+          position={position}
+          ref={maskRef}
+          //   args={[1.5, 2, 0.12]}
+          radius={0.03}
+        >
+          <MeshTransmissionMaterial
+            transmission={1}
+            roughness={0}
+            color={"#ffffff"}
+            buffer={buffer.texture}
+            transparent={true}
+            opacity={1}
+          />
+
+          {/* <meshBasicMaterial
+            transparent
+            opacity={0.5} // Adjust opacity as needed
+            color={"#ffffff"}
+            map={buffer.texture} // You can also use texture as map if needed
+          /> */}
+
+          <planeGeometry args={[1.5, 2]} />
+        </mesh>
+        {/* <RoundedBox
+          position={position}
+          ref={maskRef}
+          args={[1.5, 2, 0.12]}
+          radius={0.03}
+        >
+          <MeshTransmissionMaterial
+            transmission={1}
+            roughness={0}
+            color={"#ffffff"}
+            buffer={buffer.texture}
+          />
+        </RoundedBox> */}
+      </>
     );
   }
+
+  //   useFrame(({ clock }) => {
+  //     const time = clock.getElapsedTime();
+  //   });
+
   return (
-    <Canvas
-      className='canvas'
-      camera={camSettings}
-      gl={{
-        antialias: true,
-        outputColorSpace: THREE.SRGBColorSpace,
-        toneMappingExposure: 1,
-        alpha: true,
-      }}
-      shadows={true}
-      dpr={window.devicePixelRatio}
-    >
-      <CameraHandler />
+    <>
+      <Canvas
+        className='canvas'
+        camera={camSettings}
+        gl={{
+          antialias: true,
+          outputColorSpace: THREE.SRGBColorSpace,
+          toneMappingExposure: 1,
+          alpha: true,
+        }}
+        shadows={true}
+        dpr={window.devicePixelRatio}
+        style={{ background: "transparent" }}
+      >
+        <CameraHandler />
 
-      <Mask position={[0, 0, -0.01]} />
-      <Mask position={[0, 0, 1]} />
+        <Environment preset='city' />
 
-      <ambientLight intensity={0.5} />
+        {/* <DavidHead
+          position={[0, -2, 0]}
+          rotation={[0, Math.PI / 3, 0]}
+          scale={3.5}
+        /> */}
 
-      <DavidHead
-        position={[0, -2, 0]}
-        rotation={[0, Math.PI / 3, 0]}
-        scale={3.5}
-      />
+        <Mask position={[1, 1, 0]} />
+        <Mask position={[-1, 0, 0]} />
+        <Mask position={[1, -1.3, 0]} />
 
-      <directionalLight position={[-4, 2, 3]} intensity={2} />
-    </Canvas>
+        {/* <directionalLight position={[-4, 2, 3]} intensity={2} /> */}
+
+        <Lights />
+      </Canvas>
+    </>
   );
 }
