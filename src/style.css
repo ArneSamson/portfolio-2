@@ -67,13 +67,28 @@ h1 {
   z-index: 2;
 }
 
+.canvas {
+  position: absolute;
+  z-index: 2;
+}
+
 .page {
+  width: 100vw;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   max-width: 1440px;
+  background-color: var(--neutral-100);
+}
+
+.mask {
+  position: absolute;
+  width: 216px; /* adjust as needed */
+  height: 438px; /* adjust as needed */
+  background-color: black; /* or any other color */
+  cursor: pointer;
 }
 .bottom-fade {
   position: absolute;
@@ -84,10 +99,12 @@ h1 {
 }
 
 .title-container {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 150px;
+  pointer-events: none;
 }
 
 .title-container > *:last-child {
@@ -146,7 +163,7 @@ h1 {
   z-index: 3;
   position: absolute;
   top: 90px;
-  left: -90px;
+  left: 0px;
   transform: rotate(-90deg);
 }
 

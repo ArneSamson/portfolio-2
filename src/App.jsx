@@ -10,6 +10,8 @@ import BottomFade from "./components/BottomFade.jsx";
 import Coords from "./components/Coords.jsx";
 import BirthDate from "./components/BirthDate.jsx";
 
+import Scene from "./components/three/Scene.jsx";
+
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
 function App() {
@@ -20,12 +22,13 @@ function App() {
           <BodyBoldText>09-12-2003</BodyBoldText>
         </BirthDate>
         <BackgroundEntities />
+        <Scene />
         <TitleContainer>
           <HeadingText>embrace</HeadingText>
           <HeadingText>drive</HeadingText>
           <HeadingText>develop</HeadingText>
         </TitleContainer>
-        <BottomFade />
+        {/* <BottomFade /> */}
         <Coords>
           <BodyBoldText>N 51.023° E 4.484°</BodyBoldText>
         </Coords>
