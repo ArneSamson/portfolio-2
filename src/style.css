@@ -262,6 +262,12 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: filter 0.5s;
+}
+
+.project-card:hover {
+  filter: grayscale(0%);
 }
 
 /* media query for 1110 px */
