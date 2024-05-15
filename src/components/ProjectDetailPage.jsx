@@ -1,6 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
+import BackgroundEntities from "./BackgroundEntities";
+import Page from "./Page";
+import ContentDiv from "./ContentDiv";
+import { HeadingTwoText, BodyText } from "../text/Text";
+
 export default function ProjectDetailPage({ projects }) {
   const { slug } = useParams(); // Get the slug parameter from the URL
 
@@ -8,16 +13,26 @@ export default function ProjectDetailPage({ projects }) {
   const project = projects.find((project) => project.slug === slug);
 
   if (!project) {
-    return <p>Project not found</p>; // Handle the case where the project is not found
+    //reroute to home page if project is not found
+    window.location.href = "/";
   }
 
   const { title, description, image } = project;
 
   return (
-    <div className='project-detail'>
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <img src={image} alt={title} />
-    </div>
+    <>
+      <Page>
+        <ContentDiv>
+          <div className='content-div-section'>
+            <HeadingTwoText>{title}</HeadingTwoText>
+            <BodyText>{description}</BodyText>
+          </div>
+          <div className='project-detail'>
+            <img src={image} alt={title} />
+          </div>
+        </ContentDiv>
+        <BackgroundEntities />
+      </Page>
+    </>
   );
 }
