@@ -25,7 +25,7 @@ export default function Lights() {
         shadow-normalBias={0}
       />
 
-      <SoftShadows focus={0} samples={25} size={25} />
+      {/* <SoftShadows focus={0} samples={25} size={25} /> */}
     </>
   );
 }

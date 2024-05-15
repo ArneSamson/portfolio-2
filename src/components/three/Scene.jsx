@@ -116,7 +116,7 @@ export default function Scene() {
         }}
         shadows={true}
         dpr={window.devicePixelRatio}
-        style={{ background: "transparent", pointerEvents: "none" }}
+        // style={{ background: "transparent", pointerEvents: "none" }}
       >
         <CameraHandler />
 

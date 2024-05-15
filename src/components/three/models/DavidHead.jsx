@@ -13,8 +13,8 @@ export default function DavidHead(props) {
 
   const material = new MeshStandardMaterial({
     color: new Color(0xffffff),
-    roughness: 0.5,
-    metalness: 0.2,
+    roughness: 0.4,
+    metalness: 0.5,
   });
 
   return (
