@@ -122,15 +122,15 @@ export default function Scene() {
 
         <Environment preset='city' />
 
-        {/* <DavidHead
+        <DavidHead
           position={[0, -2, 0]}
           rotation={[0, Math.PI / 3, 0]}
           scale={3.5}
-        /> */}
+        />
 
-        <Mask position={[1, 1, 0]} />
+        {/* <Mask position={[1, 1, 0]} />
         <Mask position={[-1, 0, 0]} />
-        <Mask position={[1, -1.3, 0]} />
+        <Mask position={[1, -1.3, 0]} /> */}
 
         {/* <directionalLight position={[-4, 2, 3]} intensity={2} /> */}
 
