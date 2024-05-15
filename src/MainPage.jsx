@@ -107,10 +107,10 @@ export default function MainPage() {
         </ContentDiv>
         <BackgroundEntities />
       </Page>
-
+      {/* 
       <Page>
         <BackgroundEntities />
-      </Page>
+      </Page> */}
     </>
   );
 }

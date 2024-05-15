@@ -14,10 +14,6 @@ export default function Projects() {
       .catch((error) => console.error("Error fetching projects data:", error));
   }, []);
 
-  // const { projects } = useShallow((state) => ({
-  //   projects: state.projectData,
-  // }));
-
   return (
     <div className='projects-section'>
       {projectsData.map((project, index) => (

@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function ProjectCard({ title, description, image, link, slug }) {
+export default function ProjectCard({ title, hero, slug }) {
   return (
     <div className='project-card'>
       <Link to={`/projects/${slug}`}>
-        <img src={image} alt={title} />
+        <img src={hero} alt={title} />
       </Link>
     </div>
   );

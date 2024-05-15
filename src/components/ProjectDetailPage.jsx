@@ -17,7 +17,7 @@ export default function ProjectDetailPage({ projects }) {
     window.location.href = "/";
   }
 
-  const { title, description, image } = project;
+  const { title, short, hero, long, images } = project;
 
   return (
     <>
@@ -31,13 +31,22 @@ export default function ProjectDetailPage({ projects }) {
         <ContentDiv>
           <div className='content-div-section'>
             <HeadingTwoText>{title}</HeadingTwoText>
-            <BodyText>{description}</BodyText>
+            <BodyText>{long}</BodyText>
           </div>
           <div className='project-detail'>
-            <img src={image} alt={title} />
+            <img src={hero} alt={title} />
           </div>
         </ContentDiv>
         <BackgroundEntities />
+      </Page>
+      <Page>
+        <div className='project-detail-images'>
+          {images
+            ? images.map((image, index) => (
+                <img key={index} src={image} alt={title} />
+              ))
+            : null}
+        </div>
       </Page>
     </>
   );
