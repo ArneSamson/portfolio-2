@@ -18,10 +18,10 @@ function Blog() {
 
 function BlogPost({ ext }) {
   useEffect(() => {
-    window.location.href = `/blog/stage-week${ext}/`;
+    window.location.href = `/blog/stage-week${ext}/index.html`;
   }, [ext]);
 
-  return <Navigate to={`/blog/stage-week${ext}/`} />;
+  return <Navigate to={`/blog/stage-week${ext}/index.html`} />;
 }
 
 function App() {
