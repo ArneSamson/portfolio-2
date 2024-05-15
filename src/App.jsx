@@ -82,13 +82,18 @@ function App() {
                 maxWidth: "500px",
               }}
             >
-              lorem ipsum doler sit amet lorem ipsum doler sit amet lorem ipsum
-              doler sit amet lorem ipsum doler sit amet lorem ipsum doler sit
-              amet lorem ipsum doler sit amet lorem ipsum doler sit amet lorem
-              ipsum doler sit amet lorem ipsum doler sit amet lorem ipsum doler
-              sit amet lorem ipsum doler sit amet lorem ipsum doler sit amet
-              lorem ipsum doler sit amet lorem ipsum doler sit amet lorem ipsum
-              doler sit amet.
+              With a strong focus on React-Three-Fiber and a passion for 3D
+              design, I deliver high-quality digital solutions that push the
+              boundaries of user experiences. My skills also encompass frontend
+              frameworks like React.js and Vue.js, as well as 3D modeling with
+              Blender and Three.js. <br /> <br />
+              Additionally, I am proficient in setting up backend solutions with
+              MongoDB and Express.js API, while managing projects using
+              platforms like GitHub. My commitment to quality and continuous
+              improvement drives me to develop custom web applications that meet
+              the needs of my clients and users. <br /> <br />
+              With a focus on innovation and efficiency, I am determined to
+              exceed expectations and add value to every project I work on.
             </BodyText>
           </div>
           <SkillsLogosDiv />
