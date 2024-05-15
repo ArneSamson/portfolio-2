@@ -7,7 +7,7 @@ export default function CameraHandler() {
   const camera = useRef();
 
   const [maxDistance, setMaxDistance] = useState(4);
-  const [minDistance, setMinDistance] = useState(2);
+  const [minDistance, setMinDistance] = useState(4);
 
   //   useEffect(() => {
   //     camera.current.moveTo(...cameraFocus, true);
@@ -31,7 +31,7 @@ export default function CameraHandler() {
       ref={camera}
       draggingSmoothTime={0.2}
       maxPolarAngle={Math.PI / 2}
-      maxZoom={4}
+      maxZoom={0}
       maxDistance={maxDistance}
       minDistance={minDistance}
       enabled={true}

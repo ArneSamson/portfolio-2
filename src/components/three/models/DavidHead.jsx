@@ -22,7 +22,7 @@ export default function DavidHead(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes["smk55-kas2232-head-of-david"].geometry}
+        geometry={nodes["smk55-kas2232-head-of-david002"].geometry}
         material={material}
         rotation={[0, 0, 0]}
         scale={0.007}

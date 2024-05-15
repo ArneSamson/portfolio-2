@@ -48,12 +48,7 @@ export default function Scene() {
           />
         </group>
 
-        <mesh
-          position={position}
-          ref={maskRef}
-          //   args={[1.5, 2, 0.12]}
-          radius={0.03}
-        >
+        <mesh position={position} ref={maskRef}>
           <MeshTransmissionMaterial
             transmission={1}
             roughness={0}
@@ -72,6 +67,7 @@ export default function Scene() {
 
           <planeGeometry args={[1.5, 2]} />
         </mesh>
+
         {/* <RoundedBox
           position={position}
           ref={maskRef}
@@ -89,13 +85,27 @@ export default function Scene() {
     );
   }
 
-  //   useFrame(({ clock }) => {
-  //     const time = clock.getElapsedTime();
-  //   });
+  const canvasRef = useRef();
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const preventScroll = (event) => {
+      event.preventDefault();
+    };
+
+    // Add event listener to prevent scroll events
+    canvas.addEventListener("wheel", preventScroll, { passive: false });
+
+    return () => {
+      // Cleanup: remove event listener when component unmounts
+      canvas.removeEventListener("wheel", preventScroll);
+    };
+  }, []);
 
   return (
     <>
       <Canvas
+        ref={canvasRef}
         className='canvas'
         camera={camSettings}
         gl={{
@@ -106,7 +116,7 @@ export default function Scene() {
         }}
         shadows={true}
         dpr={window.devicePixelRatio}
-        style={{ background: "transparent" }}
+        style={{ background: "transparent", pointerEvents: "none" }}
       >
         <CameraHandler />
 

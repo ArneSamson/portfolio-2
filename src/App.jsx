@@ -1,8 +1,9 @@
 import "./style.css";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 
 import Page from "./components/Page.jsx";
+import Navbar from "./components/Navbar.jsx";
 import TitleContainer from "./components/TitleContainer.jsx";
 import { BodyText, BodyBoldText, HeadingText } from "./text/Text.jsx";
 import BackgroundEntities from "./components/BackgroundEntities.jsx";
@@ -17,6 +18,7 @@ const root = ReactDOM.createRoot(document.querySelector("#root"));
 function App() {
   return (
     <>
+      <Navbar />
       <Page>
         <BirthDate>
           <BodyBoldText>09-12-2003</BodyBoldText>
@@ -28,10 +30,22 @@ function App() {
           <HeadingText>drive</HeadingText>
           <HeadingText>develop</HeadingText>
         </TitleContainer>
-        {/* <BottomFade /> */}
+        <BottomFade />
         <Coords>
           <BodyBoldText>N 51.023° E 4.484°</BodyBoldText>
         </Coords>
+      </Page>
+
+      <Page>
+        <BackgroundEntities />
+      </Page>
+
+      <Page>
+        <BackgroundEntities />
+      </Page>
+
+      <Page>
+        <BackgroundEntities />
       </Page>
 
       <Page>
