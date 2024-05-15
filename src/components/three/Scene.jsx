@@ -56,6 +56,7 @@ export default function Scene() {
             buffer={buffer.texture}
             transparent={true}
             opacity={1}
+            side={THREE.DoubleSide}
           />
 
           {/* <meshBasicMaterial
