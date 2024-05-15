@@ -1,6 +1,7 @@
 import "./style.css";
 import React, { Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 import Page from "./components/Page.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -18,12 +19,30 @@ import BirthDate from "./components/BirthDate.jsx";
 import ContentDiv from "./components/ContentDiv.jsx";
 import SkillsLogosDiv from "./components/SkillsLogosDiv.jsx";
 import Projects from "./components/Projects.jsx";
+import ProjectDetailPage from "./components/ProjectDetailPage.jsx";
 
 import Scene from "./components/three/Scene.jsx";
 
+const projects = [
+  {
+    title: "Swear",
+    description: "A sneaker configurator for shoe brand Swear London.",
+    image: "/images/projects/swear.jpg",
+    slug: "swear",
+  },
+  {
+    title: "Yogism",
+    description:
+      "An AI-powered Yoga app that checks your posture and gives you a tailored workout.",
+    image: "/images/projects/yogism.jpg",
+    slug: "yogism",
+  },
+  // Add more projects here
+];
+
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-function App() {
+function MainPage() {
   return (
     <>
       <Navbar />
@@ -115,6 +134,23 @@ function App() {
         <BackgroundEntities />
       </Page>
     </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <>
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path='*' element={<p>404 Not Found</p>} />
+          <Route
+            path='/projects/:slug'
+            element={<ProjectDetailPage projects={projects} />} // Pass projects as props
+          />
+        </Routes>
+      </>
+    </BrowserRouter>
   );
 }
 
