@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Swear",
+    "description": "A sneaker configurator for shoe brand Swear London. Completely made in Vue.js and vanilla Three.js",
+    "image": "/images/projects/swear.jpg",
+    "slug": "swear"
+  },
+  {
+    "title": "Yogism",
+    "description": "An AI-powered Yoga app that checks your posture and gives you a tailored workout.",
+    "image": "/images/projects/yogism.jpg",
+    "slug": "yogism"
+  }
+]

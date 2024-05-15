@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import BackgroundEntities from "./BackgroundEntities";
 import Page from "./Page";
 import ContentDiv from "./ContentDiv";
-import { HeadingTwoText, BodyText } from "../text/Text";
+import { HeadingTwoText, BodyText, BodyBoldText } from "../text/Text";
 
 export default function ProjectDetailPage({ projects }) {
   const { slug } = useParams(); // Get the slug parameter from the URL
@@ -22,6 +22,12 @@ export default function ProjectDetailPage({ projects }) {
   return (
     <>
       <Page>
+        <div className='back-to-home'>
+          <a href='/'>
+            <BodyBoldText>Back to main page</BodyBoldText>
+          </a>
+          <hr className='birthdate-hr'></hr>
+        </div>
         <ContentDiv>
           <div className='content-div-section'>
             <HeadingTwoText>{title}</HeadingTwoText>
