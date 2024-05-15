@@ -1,26 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 
+import useStore from "../store/useStore";
+import { useShallow } from "zustand/react/shallow";
+
 export default function Projects() {
-  const projects = [
-    {
-      title: "Swear",
-      description: "A sneaker configurator for shoe brand Swear London.",
-      image: "/images/projects/swear.jpg",
-      slug: "swear",
-    },
-    {
-      title: "Yogism",
-      description:
-        "An AI-powered Yoga app that checks your posture and gives you a tailored workout.",
-      image: "/images/projects/yogism.jpg",
-      slug: "yogism",
-    },
-  ];
+  const [projectsData, setProjectsData] = useState([]);
+
+  useEffect(() => {
+    fetch("/projects.json")
+      .then((response) => response.json())
+      .then((data) => setProjectsData(data))
+      .catch((error) => console.error("Error fetching projects data:", error));
+  }, []);
+
+  // const { projects } = useShallow((state) => ({
+  //   projects: state.projectData,
+  // }));
 
   return (
     <div className='projects-section'>
-      {projects.map((project, index) => (
+      {projectsData.map((project, index) => (
         <ProjectCard key={index} {...project} />
       ))}
     </div>
