@@ -24,6 +24,15 @@ function BlogPost({ ext }) {
   return <Navigate to={`/blog/stage-week${ext}/index.html`} />;
 }
 
+// Component to handle the CV redirect
+function CVRedirect() {
+  useEffect(() => {
+    window.location.href = "/documents/cv.pdf"; // Redirect to the CV PDF file
+  }, []);
+
+  return <Navigate to='/cv.pdf' />;
+}
+
 function App() {
   const [projectsData, setProjectsData] = useState([]);
 
@@ -39,6 +48,7 @@ function App() {
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='*' element={<p>404 Not Found</p>} />
+          <Route path='/cv' element={<CVRedirect />} />
           <Route
             path='/projects/:slug'
             element={<ProjectDetailPage projects={projectsData} />} // Pass projects as props
