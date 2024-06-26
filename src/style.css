@@ -275,6 +275,7 @@ a {
   align-items: center;
 
   transition: filter 0.5s;
+  box-shadow: 4px 4px 0px 1px rgb(255, 92, 0);
 }
 
 .project-card:hover {
