@@ -105,6 +105,12 @@ a {
   width: 11px;
   height: 11px;
   background-color: var(--neutral-1000);
+  cursor: pointer;
+  transition: width 0.5s ease;
+}
+
+.navbar-bar.active {
+  width: 90px;
 }
 
 .canvas {

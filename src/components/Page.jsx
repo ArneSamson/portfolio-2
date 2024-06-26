@@ -1,5 +1,11 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-export default function Page({ children }) {
-  return <div className='page'>{children}</div>;
-}
+const Page = forwardRef(({ children }, ref) => {
+  return (
+    <div className='page' ref={ref}>
+      {children}
+    </div>
+  );
+});
+
+export default Page;

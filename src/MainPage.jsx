@@ -1,5 +1,5 @@
 import "./style.css";
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 import Page from "./components/Page.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -21,10 +21,47 @@ import Projects from "./components/Projects.jsx";
 import Scene from "./components/three/Scene.jsx";
 
 export default function MainPage() {
+  const pageRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = pageRefs.findIndex(
+            (ref) => ref.current === entry.target
+          );
+          setActiveIndex(index);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    pageRefs.forEach((ref) => {
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [pageRefs]);
+
   return (
     <>
-      <Navbar />
-      <Page>
+      <Navbar pageRefs={pageRefs} activeIndex={activeIndex} />
+      <Page ref={pageRefs[0]}>
         <BirthDate>
           <BodyBoldText>09-12-2003</BodyBoldText>
         </BirthDate>
@@ -41,7 +78,7 @@ export default function MainPage() {
         </Coords>
       </Page>
 
-      <Page>
+      <Page ref={pageRefs[1]}>
         <ContentDiv>
           <div className='content-div-section'>
             <HeadingTwoText>about</HeadingTwoText>
@@ -70,7 +107,7 @@ export default function MainPage() {
         <BackgroundEntities />
       </Page>
 
-      <Page>
+      <Page ref={pageRefs[2]}>
         <ContentDiv reverse>
           <div className='content-div-section'>
             <HeadingTwoText>professional</HeadingTwoText>
@@ -98,7 +135,7 @@ export default function MainPage() {
         <BackgroundEntities />
       </Page>
 
-      <Page>
+      <Page ref={pageRefs[3]}>
         <ContentDiv>
           <div className='content-div-section'>
             <HeadingTwoText>projects</HeadingTwoText>
