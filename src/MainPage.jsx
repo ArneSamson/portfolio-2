@@ -20,9 +20,12 @@ import Projects from "./components/Projects.jsx";
 
 import Scene from "./components/three/Scene.jsx";
 
+import useWindowSize from "./helper/useWindowSizeHelper.jsx";
+
 export default function MainPage() {
   const pageRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const [activeIndex, setActiveIndex] = useState(0);
+  const isSmallScreen = useWindowSize();
 
   useEffect(() => {
     const observerOptions = {
@@ -60,13 +63,16 @@ export default function MainPage() {
 
   return (
     <>
-      <Navbar pageRefs={pageRefs} activeIndex={activeIndex} />
+      {!isSmallScreen && (
+        <Navbar pageRefs={pageRefs} activeIndex={activeIndex} />
+      )}
       <Page ref={pageRefs[0]}>
         <BirthDate>
           <BodyBoldText>09-12-2003</BodyBoldText>
         </BirthDate>
         <BackgroundEntities />
-        <Scene />
+        {!isSmallScreen && <Scene />}
+
         <BottomFade />
         <TitleContainer>
           <HeadingText>embrace</HeadingText>

@@ -347,6 +347,12 @@ a {
   }
 }
 
+@media (max-width: 800px) {
+  .content-div {
+    margin-left: 90px;
+  }
+}
+
 @media (max-width: 750px) {
   .title-container h1 {
     font-size: 50px;
@@ -355,5 +361,15 @@ a {
 
   .title-container {
     gap: 50px;
+  }
+}
+
+@media (max-width: 650px) {
+  .content-div-main-image {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 30px;
   }
 }
