@@ -327,6 +327,10 @@ a {
   .skills-logos {
     gap: 22.5px;
   }
+
+  .title-container h1 {
+    font-size: 100px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -334,5 +338,16 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: baseline;
+  }
+}
+
+@media (max-width: 750px) {
+  .title-container h1 {
+    font-size: 50px;
+    -webkit-text-stroke: #ff5c00 3px;
+  }
+
+  .title-container {
+    gap: 50px;
   }
 }
