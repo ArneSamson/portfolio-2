@@ -306,6 +306,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   column-gap: 45px;
+  row-gap: 45px;
   flex-direction: row;
   align-items: baseline;
   z-index: 3;
@@ -317,6 +318,27 @@ a {
 .project-detail-images > * {
   width: 337px;
   height: auto;
+}
+
+@media (max-width: 1440px) {
+  .content-div {
+    margin-left: 90px;
+    margin-right: 90px;
+
+    margin-top: 200px;
+  }
+
+  .project-detail-images {
+    margin-left: 90px;
+    margin-right: 90px;
+  }
+
+  .page {
+    max-height: none;
+    height: auto;
+
+    padding-bottom: 50px;
+  }
 }
 
 /* media query for 1110 px */
