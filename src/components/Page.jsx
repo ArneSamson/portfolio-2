@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
 
-const Page = forwardRef(({ children }, ref) => {
+const Page = forwardRef(({ children, extraClass = "" }, ref) => {
   return (
-    <div className='page' ref={ref}>
+    <div className={`page ${extraClass}`} ref={ref}>
       {children}
     </div>
   );

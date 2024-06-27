@@ -339,6 +339,10 @@ a {
 
     padding-bottom: 50px;
   }
+
+  .landing-page {
+    height: 100vh;
+  }
 }
 
 /* media query for 1110 px */

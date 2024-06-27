@@ -66,7 +66,7 @@ export default function MainPage() {
       {!isSmallScreen && (
         <Navbar pageRefs={pageRefs} activeIndex={activeIndex} />
       )}
-      <Page ref={pageRefs[0]}>
+      <Page ref={pageRefs[0]} extraClass='landing-page'>
         <BirthDate>
           <BodyBoldText>09-12-2003</BodyBoldText>
         </BirthDate>
