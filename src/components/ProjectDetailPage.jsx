@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import BackgroundEntities from "./BackgroundEntities";
@@ -7,14 +7,58 @@ import ContentDiv from "./ContentDiv";
 import { HeadingTwoText, BodyText, BodyBoldText } from "../text/Text";
 
 export default function ProjectDetailPage({ projects }) {
-  const { slug } = useParams(); // Get the slug parameter from the URL
+  const { slug } = useParams();
+  const [project, setProject] = useState(() =>
+    projects.find((project) => project.slug === slug)
+  );
+  const [loading, setLoading] = useState(!project);
+  const [notFound, setNotFound] = useState(false);
 
-  // Find the project with the matching slug
-  const project = projects.find((project) => project.slug === slug);
+  useEffect(() => {
+    if (!project) {
+      fetch("/projects.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const fetchedProject = data.find((project) => project.slug === slug);
+          if (fetchedProject) {
+            setProject(fetchedProject);
+          } else {
+            setNotFound(true);
+          }
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching projects data:", error);
+          setNotFound(true);
+          setLoading(false);
+        });
+    }
+  }, [slug, project]);
 
-  if (!project) {
-    //reroute to home page if project is not found
-    window.location.href = "/";
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (notFound) {
+    return (
+      <Page>
+        <div className='back-to-home'>
+          <a href='/'>
+            <BodyBoldText>Back to main page</BodyBoldText>
+          </a>
+          <hr className='birthdate-hr'></hr>
+        </div>
+        <ContentDiv>
+          <div className='content-div-section'>
+            <HeadingTwoText>Project not found</HeadingTwoText>
+            <BodyText>
+              Sorry, the project you are looking for does not exist.
+            </BodyText>
+          </div>
+        </ContentDiv>
+        <BackgroundEntities />
+      </Page>
+    );
   }
 
   const { title, short, hero, long, images } = project;
