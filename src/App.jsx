@@ -47,7 +47,7 @@ function App() {
       <>
         <Routes>
           <Route path='/' element={<MainPage />} />
-          <Route path='*' element={<p>404 Not Found</p>} />
+          {/* <Route path='*' element={<p>404 Not Found</p>} /> */}
           <Route path='/cv' element={<CVRedirect />} />
           <Route
             path='/projects/:slug'

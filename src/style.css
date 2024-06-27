@@ -298,6 +298,10 @@ a {
   z-index: 10;
 }
 
+.project-detail img {
+  max-height: 400px;
+}
+
 .project-detail-images {
   display: flex;
   flex-wrap: wrap;
