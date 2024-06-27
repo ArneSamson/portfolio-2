@@ -93,10 +93,10 @@ export default function MainPage() {
                 maxWidth: "500px",
               }}
             >
-              Hey! I'm Arne, an enthusiastic student of Digital Experience
-              Design at Thomas More University of Applied Sciences in Mechelen.
-              My passion for both 3D design and web development has driven me to
-              develop a broad set of skills in both disciplines. <br /> <br />
+              Hey! I'm Arne, an enthusiastic creative/frontend developer based
+              in Mechelen. My passion for both 3D design and web development has
+              driven me to develop a broad set of skills in both disciplines.{" "}
+              <br /> <br />
               With a strong background in Digital Experience Design, I'm
               fascinated by the possibilities of combining creative design with
               cutting-edge web technologies. My love for 3D design has inspired
