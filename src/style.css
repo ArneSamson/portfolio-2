@@ -268,19 +268,27 @@ a {
   width: 320px;
   height: 320px;
   overflow: hidden;
-  /* remove saturation */
-  filter: grayscale(100%);
-  /* position the linkk in this div centrally */
+  /* filter: grayscale(100%); */
   display: flex;
   justify-content: center;
   align-items: center;
 
-  transition: filter 0.5s;
+  transition: transform 0.5s;
   box-shadow: 4px 4px 0px 1px rgb(255, 92, 0);
+}
+
+.project-card a {
+  filter: grayscale(100%);
+  transition: filter 0.5s;
+
+  &:hover {
+    filter: grayscale(0%);
+  }
 }
 
 .project-card:hover {
   filter: grayscale(0%);
+  transform: scale(1.05);
 }
 
 .back-to-home {
