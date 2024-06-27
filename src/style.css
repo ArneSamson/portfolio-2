@@ -91,6 +91,11 @@ a {
   color: var(--neutral-900);
 }
 
+img {
+  /* no user interaction like dragging */
+  pointer-events: none;
+}
+
 .navbar {
   position: fixed;
   top: 50vh;
