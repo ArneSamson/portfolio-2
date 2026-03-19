@@ -24,6 +24,14 @@ function BlogPost({ ext }) {
   return <Navigate to={`/blog/stage-week${ext}/index.html`} />;
 }
 
+function SpelBord() {
+  useEffect(() => {
+    window.location.href = "/spelbord/index.html"; // Redirect to the spelbord's index.html
+  }, []);
+
+  return <Navigate to='/spelbord/index.html' />;
+}
+
 // Component to handle the CV redirect
 function CVRedirect() {
   useEffect(() => {
@@ -53,6 +61,7 @@ function App() {
             path='/projects/:slug'
             element={<ProjectDetailPage projects={projectsData} />} // Pass projects as props
           />
+          <Route path='/spelbord' element={<SpelBord />} />
           <Route path='/blog/' element={<Blog />} />
           <Route
             path='/blog/stage-week1&2'
