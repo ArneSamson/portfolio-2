@@ -61,7 +61,7 @@ function App() {
             path='/projects/:slug'
             element={<ProjectDetailPage projects={projectsData} />} // Pass projects as props
           />
-          <Route path='/spelbord' element={<SpelBord />} />
+          <Route path='/spelbord/' element={<SpelBord />} />
           <Route path='/blog/' element={<Blog />} />
           <Route
             path='/blog/stage-week1&2'
