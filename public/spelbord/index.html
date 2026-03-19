@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Digitaal Bordspel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div id="controls">
+        <button id="roll-btn">Gooi Dobbelsteen 🎲</button>
+        <div id="dice-result">-</div>
+    </div>
+
+    <div id="image-controls">
+        <input type="text" class="image-input" id="image-position-input-two" placeholder="1">
+        <input type="text" class="image-input" id="image-position-input-one" placeholder="2">
+        <input type="text" class="image-input" id="image-position-input-three" placeholder="3">
+        <input type="text" class="image-input" id="image-position-input-four" placeholder="4">
+        <input type="text" class="image-input" id="image-position-input-five" placeholder="5">
+        <input type="text" class="image-input" id="image-position-input-six" placeholder="6">
+        <input type="text" class="image-input" id="image-position-input-seven" placeholder="7">
+        <input type="text" class="image-input" id="image-position-input-eight" placeholder="8">
+
+        <button id="update-images-btn">Update Afbeeldingen</button>
+    </div>
+
+    <div id="board">
+        <div>
+            <img id="logo-image" src="images/logo-image.png" alt="Spelbord">
+        </div>
+        <svg id="visual-path-svg">
+            <path class="visual-line" d="M 70 70 C 400 70 730 70 730 230 C 730 390 70 390 70 530 C 70 650 400 530 730 530"></path>
+        </svg>
+        
+        <div class="pawn" id="pawn1">P1</div>
+        <div class="pawn" id="pawn2">P2</div>
+        <div class="pawn" id="pawn3">P3</div>
+        <div class="pawn" id="pawn4">P4</div>
+        <div>
+            <img id="cheer-image" src="images/banner.svg" alt="Spelbord">
+        </div>
+
+    </div>
+
+
+</html>
