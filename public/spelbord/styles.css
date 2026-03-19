@@ -76,12 +76,23 @@ button:hover {
     margin-top: 150px;
 }
 
+#image-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
 .image-input{
     width: 20px;
     padding: 10px;
     font-size: 1rem;
     border: 2px solid #ccc;
     border-radius: 5px;
+    text-align: center;
+
 }
 
 .tile {
