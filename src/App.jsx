@@ -74,7 +74,7 @@ function App() {
           <Route path='/blog' element={<Blog />} />
           <Route path='/blog/' element={<Blog />} />
           <Route path='/innovator' element={<Innovator />} />
-          
+          <Route path='/innovator/' element={<Innovator />} />
           <Route
             path='/blog/stage-week1&2'
             element={<BlogPost ext={"1&2"} />}
