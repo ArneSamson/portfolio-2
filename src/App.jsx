@@ -32,6 +32,14 @@ function SpelBord() {
   return <Navigate to='/spelbord/index.html' />;
 }
 
+function Innovator(){
+  useEffect(() => {
+    window.location.href = "/innovator/index.html"; // Redirect to the innovator's index.html
+  }, []);
+
+  return <Navigate to='/innovator/index.html' />;
+}
+
 // Component to handle the CV redirect
 function CVRedirect() {
   useEffect(() => {
@@ -65,6 +73,8 @@ function App() {
           <Route path='/spelbord/' element={<SpelBord />} />
           <Route path='/blog' element={<Blog />} />
           <Route path='/blog/' element={<Blog />} />
+          <Route path='/innovator' element={<Innovator />} />
+          
           <Route
             path='/blog/stage-week1&2'
             element={<BlogPost ext={"1&2"} />}

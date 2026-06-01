@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDG+ Zelfcorrectie Wijzer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --bg-color: #f4f7f6;
+        }
+
+        /* Essentieel: zorgt dat padding de box niet onzichtbaar breder maakt */
+        * {
+            box-sizing: border-box; 
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            margin: 0;
+        }
+
+        .controls {
+            margin-bottom: 2rem;
+        }
+
+        button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* Container met vaste pixels voor de export */
+        #pdf-content {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            width: 794px; /* Ideale breedte voor A4 portret */
+            max-width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 1rem;
+        }
+
+        .header h1 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 2.2rem;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* 100% breedte gebruiken zodat het netjes binnen de padding van de container blijft */
+        .step-card {
+            background: #fff;
+            border: 2px solid var(--secondary);
+            border-radius: 8px;
+            padding: 1.5rem 2rem 1.5rem 2rem;
+            width: 100%; 
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+            page-break-inside: avoid; /* Voorkomt dat een stap over twee pagina's wordt verdeeld */
+            break-inside: avoid; /* Moderne browsers ondersteunen deze eigenschap ook */
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--secondary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 3px solid white;
+        }
+
+        .step-card h2 {
+            margin: 0 0 1rem 0;
+            color: var(--primary);
+            font-size: 1.3rem;
+            padding-left: 0.5rem;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .checklist li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        .checklist li::before {
+            content: '👉';
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .action {
+            display: block;
+            margin-top: 0.3rem;
+            font-size: 0.9rem;
+            color: #e67e22;
+            font-weight: bold;
+            padding-left: 0;
+        }
+
+        .arrow {
+            width: 0; 
+            height: 0; 
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid var(--primary);
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <div class="controls">
+        <button onclick="genereerPDF()">Exporteer als PDF (klaar voor de klas)</button>
+    </div> -->
+
+    <div id="pdf-content">
+        <div class="header">
+            <h1>SDG+ Zelfcorrectie wijzer</h1>
+            <p>Plan B: Volg deze stappen voordat je een tekst of antwoord indient.</p>
+        </div>
+
+        <div class="flow-container">
+            
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h2>De ademtest (zinsbouw en leestekens)</h2>
+                <ul class="checklist">
+                    <li><strong>Lees je tekst één keer hardop voor. Hap je naar adem?</strong>
+                        <span class="action">Actie: Zoek het woordje 'en'. Knip de zin daar in tweeën en zet een punt.</span>
+                    </li>
+                    <li><strong>Begint je zin met 'En', 'Maar' of 'Omdat'?</strong>
+                        <span class="action">Actie: Koppel deze losse bijzin aan de vorige zin, of herschrijf het begin.</span>
+                    </li>
+                    <li><strong>Staat er een leesteken (. of ?) aan het absolute einde?</strong>
+                        <span class="action">Actie: Plaats het ontbrekende leesteken.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="arrow"></div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h2>De radar voor hoofdletters</h2>
+                <ul class="checklist">
+                    <li><strong>Staat er na elke punt een hoofdletter?</strong></li>
+                    <li><strong>Hebben specifieke namen en locaties een hoofdletter?</strong>
+                        <span class="action">Actie: Check lokale begrippen. Bijv: Mechelen, Grote Markt, BA Pitzemburg.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="arrow"></div>
+
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h2>De smurfen-check (werkwoorden)</h2>
+                <ul class="checklist">
+                    <li><strong>Duid alle werkwoorden in de tegenwoordige tijd aan. Twijfel je over -d of -dt?</strong>
+                        <span class="action">Actie: Vervang het woord door 'smurfen'. Hoor je een 't' achter de smurf? (Hij smurft) = stam + t. Hoor je geen 't'? (Ik smurf) = stam.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="arrow"></div>
+
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h2>De professionele 'sms-filter'</h2>
+                <ul class="checklist">
+                    <li><strong>Zie je afkortingen of spreektaal? ('mss', 'gwn', 'ni')</strong>
+                        <span class="action">Actie: Schrijf ze voluit. (misschien, gewoon, niet)</span>
+                    </li>
+                    <li><strong>Gebruik je vage woorden? ('dinges', 'dat mens')</strong>
+                        <span class="action">Actie: Vervang door specifieke termen. (bijv: factoren, de consument, de onderneming)</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-note">
+            &copy; Ontwikkeld voor de evaluatie van vakdoelen SDG+ | Analoog 'Plan B' bij netwerkstoringen.
+        </div>
+    </div>
+
+    <script>
+    function genereerPDF() {
+        const element = document.getElementById('pdf-content');
+        
+        const opt = {
+            margin:       0.3,
+            filename:     'SDG_Zelfcorrectie_Wijzer.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { 
+                scale: 2,
+                windowWidth: 1850 
+            },
+            jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(element).save();
+    }
+    </script>
+</body>
+</html>
