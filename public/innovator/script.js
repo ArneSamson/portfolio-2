@@ -9,7 +9,7 @@ const studentData = [
     { name: "Axl", scores: [2, 5, 2], notes: ["Hoofdletters en leestekens.", "Zinsbouw, hoofdletters, 'mss', de-het fout, 'interesant'.", "fietsestalling, goe zijn"] },
     { name: "Ines", scores: [1, 3, 0], notes: ["Leestekens einde zin.", "Leestekens, hoofdletters, dt-fout", "Foutloos"] },
     { name: "Hajar", scores: [1, 0, 0], notes: ["Hoofdletters.", "Foutloos", "Foutloos"] },
-    { name: "Gitte", scores: [0, 2, 0], notes: ["Foutloos", "Zinsbouw, hoofdletters", "Foutloos"] },
+    { name: "Gitte", scores: [0, 2, 0], notes: ["Afwezig", "Zinsbouw, hoofdletters", "Foutloos"] },
     { name: "Hanna", scores: [1, 3, 0], notes: ["Maakt geen nieuwe zin of gebruikt geen dubbelpunt.", "hoofdletters, leestekens, zin beginnen met 'en'.", "Foutloos"] },
     { name: "Siraa", scores: [0, 1, 0], notes: ["Foutloos", "Dt-fout", "Foutloos"] },
     { name: "Stan", scores: [1, 0, 0], notes: ["Onafgwerkte zin.", "Foutloos", "Foutloos"] },
