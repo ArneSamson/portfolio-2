@@ -172,3 +172,31 @@ function initSurveyChart() {
 
 // Zorg dat deze wordt aangeroepen na het laden van de pagina
 // initSurveyChart();
+
+// Presentatiemodus: Navigeer met de pijltjestoetsen of spatiebalk
+const sections = ['#draagvlak', '#macro', '#analyse', '#individueel', '#case-study', '#roadmap', '#reflectie', '#toolbox', '#verantwoording', '#bewijsmateriaal'];
+let currentSectionIndex = -1;
+
+document.addEventListener('keydown', (e) => {
+    // Alleen triggeren bij PijlRechts of Spatiebalk
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault(); // Voorkomt standaard scrollen van de spatiebalk
+        currentSectionIndex++;
+        if (currentSectionIndex >= sections.length) currentSectionIndex = 0; // Loop terug naar begin
+        
+        const target = document.querySelector(sections[currentSectionIndex]);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    // Terugspoelen met PijlLinks
+    if (e.key === 'ArrowLeft') {
+        currentSectionIndex--;
+        if (currentSectionIndex < 0) currentSectionIndex = 0;
+        
+        const target = document.querySelector(sections[currentSectionIndex]);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+});
