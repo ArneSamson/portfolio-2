@@ -174,7 +174,7 @@ function initSurveyChart() {
 // initSurveyChart();
 
 // Presentatiemodus: Navigeer met de pijltjestoetsen of spatiebalk
-const sections = ['#draagvlak', '#macro', '#analyse', '#individueel', '#case-study', '#roadmap', '#reflectie', '#toolbox', '#verantwoording', '#bewijsmateriaal'];
+const sections = ['#macro', '#analyse', '#draagvlak', '#toolbox'];
 let currentSectionIndex = -1;
 
 document.addEventListener('keydown', (e) => {
