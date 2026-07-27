@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgetspel - Pitzemburg</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- OPSTARTSCHERM -->
+    <div id="setup-overlay" class="setup-overlay">
+        <div class="setup-content">
+            <h2>Welkom bij de Pitz-Bank</h2>
+            <p>Voeg 2 tot 4 spelers toe om de maand te starten:</p>
+            
+            <div class="input-groep">
+                <input type="text" id="naam-1" placeholder="Speler 1 (Verplicht)">
+                <input type="text" id="naam-2" placeholder="Speler 2 (Verplicht)">
+                <input type="text" id="naam-3" placeholder="Speler 3 (Optioneel)">
+                <input type="text" id="naam-4" placeholder="Speler 4 (Optioneel)">
+            </div>
+            
+            <p id="setup-error" class="error-msg verborgen">Vul minstens 2 namen in!</p>
+            <button id="btn-start" class="btn-primary">Start Spel</button>
+        </div>
+    </div>
+
+    <div class="app-container">
+        
+        <!-- SIDEBAR / DASHBOARD -->
+        <aside class="dashboard">
+            <header class="dashboard-header">
+                <h2>Budgetspel</h2>
+                <!-- <button id="btn-dobbelen" class="btn-primary">🎲 Werp Dobbelsteen</button>
+                <div id="dobbel-resultaat" class="dobbel-weergave">-</div> -->
+                <div class="handmatige-worp-container">
+                    <label for="input-worp" style="display: block; margin-bottom: 8px; font-size: 14px; font-weight: bold;">Gegooid getal (1-6):</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="number" id="input-worp" min="1" max="6" value="1" style="width: 70px; padding: 10px; font-size: 16px; text-align: center; border: 2px solid #ddd; border-radius: 6px;">
+                        <button id="btn-bevestig-worp" class="btn-primary" style="flex: 1;">Verplaats Pion</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="spelers-lijst">
+            </div>
+        </aside>
+
+        <!-- MAIN BORDGEDAALTE -->
+        <main class="board-area">
+            <div class="board-grid" id="speelbord">
+            </div>
+        </main>
+
+    </div>
+
+    <!-- POP-UP MODAL (Standaard verborgen) -->
+    <div id="modal-overlay" class="verborgen">
+        <div class="modal-content">
+            <h2 id="modal-titel">Vaste Kosten</h2>
+            <div id="modal-tekst">
+                <p>Je bent de volgende kosten gepasseerd:</p>
+                <ul id="modal-kosten-lijst">
+                    <li>Hypotheek: - € 1.400</li>
+                    <li>Water: - € 35</li>
+                </ul>
+                <p class="totaal-kost">Totaal: - € 1.435</p>
+            </div>
+            <div class="modal-knoppen">
+                <button id="btn-betaal" class="btn-primary">Betaal & Ga Verder</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- KANSKAART MODAL -->
+    <div id="kanskaart-modal" class="modal-overlay verborgen">
+        <div class="modal-content geel-thema">
+            <h2 id="kanskaart-titel">Kanskaart</h2>
+            <p id="kanskaart-beschrijving"></p>
+            <p id="kanskaart-kost" class="vetgedrukt"></p>
+            
+            <div id="kanskaart-knoppen" class="knoppen-rij">
+                <!-- Knoppen (Ja, Nee, Betaal, Dobbelen) worden hier via JS ingeladen -->
+            </div>
+            
+            <!-- Hier komt de uitslag van het dobbelen bij de autopech kaart -->
+            <p id="kanskaart-resultaat" class="dobbel-resultaat"></p> 
+        </div>
+    </div>
+
+    <!-- EINDE MAAND MODAL -->
+    <div id="betaaldag-modal" class="modal-overlay verborgen">
+        <div class="modal-content">
+            <h2 id="betaaldag-titel">Betaaldag! 🏆</h2>
+            <p id="betaaldag-tekst"></p>
+            
+            <div id="betaaldag-overzicht" class="betaaldag-overzicht">
+                <!-- Wordt via JS gevuld met lening-info -->
+            </div>
+            
+            <h3 id="betaaldag-eindsaldo" class="totaal-kost"></h3>
+            <button id="btn-einde-beurt" class="btn-primary">Afronden</button>
+        </div>
+    </div>
+
+    <!-- GEZIN INFO MODAL -->
+    <div id="gezin-info-modal" class="modal-overlay verborgen">
+        <div class="modal-content">
+            <h2 id="info-gezin-titel" style="color: var(--primary-color); margin-bottom: 15px;">Gezinsinfo</h2>
+            <div id="info-gezin-tekst" style="text-align: left; background: #f9f9f9; padding: 15px; border-radius: 6px; margin-bottom: 20px; font-size: 14px; line-height: 1.5;">
+                <!-- Wordt dynamisch gevuld -->
+            </div>
+            <button id="btn-sluit-gezin-info" class="btn-primary">Sluiten</button>
+        </div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+</html>

@@ -40,6 +40,13 @@ function Innovator(){
   return <Navigate to='/innovator/index.html' />;
 }
 
+function Gezinsbudgetspel() {
+  useEffect(() => {
+    window.location.href = "/gezinsbudgetspel/index.html"; // Redirect to the gezinsbudgetspel's index.html
+  }, []);
+  return <Navigate to='/gezinsbudgetspel/index.html' />;
+}
+
 // Component to handle the CV redirect
 function CVRedirect() {
   useEffect(() => {
@@ -75,6 +82,7 @@ function App() {
           <Route path='/blog/' element={<Blog />} />
           <Route path='/innovator' element={<Innovator />} />
           <Route path='/innovator/' element={<Innovator />} />
+          <Route path='/gezinsbudgetspel' element={<Gezinsbudgetspel />} />
           <Route
             path='/blog/stage-week1&2'
             element={<BlogPost ext={"1&2"} />}
