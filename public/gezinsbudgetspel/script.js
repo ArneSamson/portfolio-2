@@ -31,12 +31,12 @@ const vasteKostenData = {
         { naam: "Hamster", bedrag: 20 }
     ],
     2: [ // Gezin 2: Groot gezin met 4 kinderen[cite: 1]
-        { naam: "Hypotheek", bedrag: 1800 },
+        { naam: "Hypotheek", bedrag: 1700 },
         { naam: "Elektriciteit + Gas", bedrag: 350 },
         { naam: "Water", bedrag: 100 },
         { naam: "Mobiele telefoon + Internet", bedrag: 200 },
         { naam: "Boodschappen", bedrag: 950 },
-        { naam: "Autolening", bedrag: 275 },
+        { naam: "Autolening", bedrag: 250 },
         { naam: "Tanken", bedrag: 50 },
         { naam: "Basic-Fit abonnement", bedrag: 35 },
         { naam: "Schoolrekening", bedrag: 540 }, // €135 x 4
@@ -50,36 +50,36 @@ const vasteKostenData = {
         { naam: "Hond", bedrag: 70 }
     ],
     3: [ // Gezin 3: Klein gezin met 2 kinderen[cite: 1]
-        { naam: "Hypotheek", bedrag: 1600 },
+        { naam: "Huur", bedrag: 1500 },
         { naam: "Elektriciteit + Gas", bedrag: 250 },
         { naam: "Water", bedrag: 70 },
-        { naam: "Mobiele telefoon + Internet", bedrag: 175 },
+        { naam: "Mobiele telefoon + Internet", bedrag: 150 },
         { naam: "Boodschappen", bedrag: 750 },
-        { naam: "Autolening", bedrag: 275 },
+        { naam: "Kinderopvang", bedrag: 150 },
         { naam: "Tanken", bedrag: 50 },
         { naam: "Basic-Fit abonnement", bedrag: 35 },
         { naam: "Schoolrekening", bedrag: 270 }, // €135 x 2
-        { naam: "Autoverzekering", bedrag: 140 },
-        { naam: "Apple abonnement", bedrag: 25 },
-        { naam: "Netflix", bedrag: 15 },
+        { naam: "Autoverzekering", bedrag: 40 },
+        { naam: "Microsoft Office", bedrag: 10 },
+        { naam: "E-boek abonnement", bedrag: 12 },
         { naam: "Disney+", bedrag: 15 },
         { naam: "Autobelasting", bedrag: 35 },
         { naam: "Ziekteverzekering", bedrag: 120 },
         { naam: "Familiaal- en woonverzekering", bedrag: 40 },
-        { naam: "Kat", bedrag: 50 }
+        { naam: "Kat", bedrag: 40 }
     ],
     4: [ // Gezin 4: Alleenstaande ouder met 1 kind[cite: 1]
-        { naam: "Hypotheek", bedrag: 1200 },
+        { naam: "Hypotheek", bedrag: 1100 },
         { naam: "Elektriciteit + Gas", bedrag: 145 },
         { naam: "Water", bedrag: 35 },
         { naam: "Mobiele telefoon + Internet", bedrag: 150 },
         { naam: "Boodschappen", bedrag: 650 },
         { naam: "Autolening", bedrag: 275 },
         { naam: "Tanken", bedrag: 50 },
-        { naam: "Basic-Fit abonnement", bedrag: 35 },
+        { naam: "Yoga lessen", bedrag: 35 },
         { naam: "Schoolrekening", bedrag: 135 }, // €135 x 1
         { naam: "Autoverzekering", bedrag: 140 },
-        { naam: "Apple abonnement", bedrag: 25 },
+        { naam: "OneDrive abonnement", bedrag: 8 },
         { naam: "Netflix", bedrag: 15 },
         { naam: "Disney+", bedrag: 15 },
         { naam: "Autobelasting", bedrag: 35 },
